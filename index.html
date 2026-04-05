@@ -1,105 +1,470 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人简历</title>
+    <title>Lingfeng Zhang | Academic Homepage</title>
+    <!-- 引入图标库（无需修改） -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* 全局样式重置（无需修改） */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        /* 页面基础样式（学术风适配数学专业） */
         body {
-            font-family: "Microsoft YaHei", sans-serif;
-            max-width: 1000px;
+            font-family: "Times New Roman", Arial, sans-serif;
+            max-width: 1150px;
             margin: 0 auto;
-            padding: 20px;
-            line-height: 1.8;
+            padding: 30px 20px;
+            line-height: 1.7;
+            color: #2d3748;
             background-color: #f8f9fa;
         }
+
+        /* 头部个人信息样式 */
         .header {
             text-align: center;
             padding: 30px 0;
-            border-bottom: 2px solid #007bff;
-            margin-bottom: 30px;
+            border-bottom: 3px solid #2b4a78;
+            margin-bottom: 35px;
         }
+
         .header h1 {
-            color: #212529;
-            font-size: 32px;
+            font-size: 38px;
+            color: #2b4a78;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
-        .header p {
-            color: #6c757d;
+
+        .header .research-interest {
             font-size: 18px;
-            margin-top: 10px;
+            color: #4a5568;
+            font-style: italic;
+            margin: 8px 0;
         }
+
+        .header .contact {
+            font-size: 16px;
+            color: #555;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .contact a {
+            color: #2b4a78;
+            text-decoration: none;
+            margin: 0 6px;
+        }
+
+        .header .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* 每个板块的通用样式 */
         .section {
-            margin-bottom: 30px;
-            background-color: white;
-            padding: 20px;
+            margin-bottom: 32px;
+            background-color: #ffffff;
+            padding: 28px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
+
         .section h2 {
-            color: #007bff;
-            margin-bottom: 15px;
-            border-left: 5px solid #007bff;
-            padding-left: 10px;
+            font-size: 23px;
+            color: #2b4a78;
+            margin-bottom: 18px;
+            border-left: 5px solid #2b4a78;
+            padding-left: 12px;
+            font-weight: 600;
         }
+
+        /* 列表项通用样式 */
         .section ul {
             list-style: none;
-            padding-left: 20px;
+            padding-left: 10px;
         }
+
         .section li {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
+            font-size: 15px;
+        }
+
+        /* 条目标题/副标题样式（时间、机构） */
+        .item-title {
+            font-weight: bold;
+            color: #1a202c;
             font-size: 16px;
         }
-        .project {
-            margin-bottom: 15px;
+
+        .item-sub {
+            color: #718096;
+            font-style: italic;
+            margin: 3px 0 6px 0;
         }
-        .project h3 {
-            color: #495057;
-            font-size: 18px;
+
+        .item-desc {
+            padding-left: 12px;
+        }
+
+        /* 双列布局（旅行/专辑板块用） */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* 响应式适配（手机端自动调整） */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            .section {
+                padding: 18px;
+            }
+            .section h2 {
+                font-size: 20px;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .header .contact {
+                flex-direction: column;
+                gap: 4px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- 头部：你的个人信息 -->
+    <!-- 头部：个人信息 + 社交媒体链接（已填好你的核心信息） -->
     <div class="header">
-        <h1>张三</h1>
-        <p><i class="fa-solid fa-phone"></i> 138XXXX1234 | <i class="fa-solid fa-envelope"></i> zhangsan@163.com | <i class="fa-brands fa-github"></i> https://github.com/你的GitHub用户名</p>
+        <h1>Lingfeng Zhang</h1>
+        <p class="research-interest">Research Interests: Partial Differential Equations, Nonlinear Functional Analysis, Asymptotic Analysis</p>
+        <p class="contact">
+            <span><i class="fa-solid fa-location-dot"></i> Beijing, China</span>
+            <span><i class="fa-solid fa-envelope"></i> <a href="mailto:zhanglf23@mails.tsinghua.edu.cn">zhanglf23@mails.tsinghua.edu.cn</a></span>
+            <span><i class="fa-solid fa-phone"></i> +86-18501405745</span>
+        </p>
+        <p class="contact">
+            <!-- 社交媒体链接，可自行补充/删除 -->
+            <i class="fa-solid fa-graduation-cap"></i> <a href="#" target="_blank">Google Scholar</a> | 
+            <i class="fa-brands fa-github"></i> <a href="#" target="_blank">GitHub</a> | 
+            <i class="fa-brands fa-linkedin"></i> <a href="#" target="_blank">LinkedIn</a> | 
+            <i class="fa-brands fa-bilibili"></i> <a href="#" target="_blank">Bilibili</a>
+        </p>
     </div>
 
-    <!-- 技能模块 -->
+    <!-- 1. EDUCATION 教育经历（1:1还原你的简历） -->
     <div class="section">
-        <h2><i class="fa-solid fa-code"></i> 技术技能</h2>
+        <h2><i class="fa-solid fa-graduation-cap"></i> EDUCATION</h2>
         <ul>
-            <li>办公软件：Word/Excel/PPT 熟练</li>
-            <li>专业技能：XX专业相关技能（比如：数据分析、设计、编程等）</li>
-            <li>其他技能：英语四级、驾照C1等</li>
+            <li>
+                <div class="item-title">The Chinese University of Hong Kong | PhD. in Mathematics</div>
+                <div class="item-sub">08/2026 - TBD | Hong Kong, China</div>
+                <p class="item-desc">Awardee of CUHK Vice-Chancellor’s PhD Scholarship Scheme (09/2026-06/2029)</p>
+                <p class="item-desc">PhD Advisor: Prof. Renjun Duan</p>
+            </li>
+            <li>
+                <div class="item-title">Tsinghua University | M.S. in Mathematics</div>
+                <div class="item-sub">09/2023 - 06/2026 | Beijing, China</div>
+                <p class="item-desc">GPA: 3.9/4.0 (93.19/100.00) | Qiuzhen College, Yau Mathematical Science Center</p>
+                <p class="item-desc">Master’s Advisor: Prof. Zhijie Chen</p>
+                <p class="item-desc">Core Subjects: Computational Fluid Dynamics (4.0), Asymptotic Analysis (4.0), Special Topics on Applied Mathematics (4.0), Harmonic Analysis (4.0), Partial Differential Equations II (4.0)</p>
+            </li>
+            <li>
+                <div class="item-title">Southeast University | B.S. in Mathematics and Applied Mathematics, English (Minor)</div>
+                <div class="item-sub">09/2019 - 06/2023 | Nanjing, China</div>
+                <p class="item-desc">GPA: 3.71/4.00 (88.72/100.00) | Excellent Undergraduate Graduation Thesis</p>
+                <p class="item-desc">Bachelor’s Advisor: Prof. Xiaoliu Wang</p>
+                <p class="item-desc">Core Subjects: Partial Differential Equations (100), Mathematical Analysis (94/95/90), Advanced Algebra and Analytic Geometry (94/96), Mathematical Modeling (95), Functional Analysis (91)</p>
+            </li>
         </ul>
     </div>
 
-    <!-- 教育经历 -->
+    <!-- 2. PUBLICATIONS 发表论文（1:1还原你的简历） -->
     <div class="section">
-        <h2><i class="fa-solid fa-graduation-cap"></i> 教育经历</h2>
+        <h2><i class="fa-solid fa-file-alt"></i> PUBLICATIONS</h2>
         <ul>
-            <li>2020-2024 | XX大学 | XX专业 | 本科</li>
-            <li>主修课程：XX、XX、XX（可选）</li>
+            <li>
+                <div class="item-title">[1] L. Zhang and X. Wang, On A Parabolic Equation in Microelectromechanical Systems with An External Pressure</div>
+                <div class="item-sub">Mathematical Methods in the Applied Sciences, 48(2025), 2122–2140</div>
+                <p class="item-desc">DOI: <a href="https://doi.org/10.1002/mma.10427" target="_blank">10.1002/mma.10427</a> | Winner of 2024 Qiuzhen Creative Paper Awards (First Prize)</p>
+            </li>
+            <li>
+                <div class="item-title">[2] Z. Chen and L. Zhang, Asymptotic Profiles of Low-Energy Nodal Solutions for the Hénon Problem in Planar Domains</div>
+                <div class="item-sub">Preprint, in submission</div>
+            </li>
         </ul>
     </div>
 
-    <!-- 项目/实习经历 -->
+    <!-- 3. RESEARCH PROJECTS 研究项目（1:1还原你的简历） -->
     <div class="section">
-        <h2><i class="fa-solid fa-briefcase"></i> 经历</h2>
-        <div class="project">
-            <h3>XX实习/XX项目（2023年X月-2023年X月）</h3>
+        <h2><i class="fa-solid fa-flask-vial"></i> RESEARCH PROJECTS</h2>
+        <ul>
+            <li>
+                <div class="item-title">Asymptotic Behavior of Least Energy Nodal Solutions for Hénon Problems</div>
+                <div class="item-sub">03/2025 - 09/2025 | Tsinghua University, Beijing, China</div>
+                <p class="item-desc">Master’s Degree Thesis; Completed and in submission stage</p>
+                <p class="item-desc">Studied asymptotic behavior of least energy nodal solutions for the Hénon equation, proved quantization property and blow-up analysis of general nodal solutions, derived sharp estimates of low energy nodal solutions</p>
+            </li>
+            <li>
+                <div class="item-title">Raw Material Production Data Prediction Based on Deep Learning</div>
+                <div class="item-sub">11/2021 - 11/2022 | Southeast University, Nanjing, China</div>
+                <p class="item-desc">Project Leader; Key Project of Southeast University</p>
+                <p class="item-desc">Introduced deep learning technologies to estimate time-series raw material production data, mastered RNN, LSTM algorithms and TensorFlow; Won Bronze Award in Southeast University Innovation and Entrepreneurship Competition</p>
+            </li>
+            <li>
+                <div class="item-title">Research on Rayleigh Taylor Instability Based on Lattice Boltzmann Method</div>
+                <div class="item-sub">11/2020 - 11/2021 | Nanjing, China</div>
+                <p class="item-desc">Jiangsu Province Innovation Training Project</p>
+                <p class="item-desc">Applied LBM method to study square cavity flow and simulate Rayleigh Taylor instability, introduced fractional derivative and multi-scale analysis, optimized algorithm to reduce computational cost</p>
+            </li>
+            <li>
+                <div class="item-title">Stock Prediction Model Based on Machine Learning Algorithms</div>
+                <div class="item-sub">11/2020 - 11/2021 | Southeast University, Nanjing, China</div>
+                <p class="item-desc">Key Project of Southeast University</p>
+                <p class="item-desc">Built LSTM model for stock price trend prediction, responsible for data cleaning, parameter tuning and result evaluation; Improved model prediction accuracy through parameter optimization</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 4. RESEARCH EXPERIENCES 研究经历（1:1还原你的简历） -->
+    <div class="section">
+        <h2><i class="fa-solid fa-microscope"></i> RESEARCH EXPERIENCES</h2>
+        <ul>
+            <li>
+                <div class="item-title">Tianyuan Mathematics Workshop on Nonlinear Functional Analysis and Its Applications</div>
+                <div class="item-sub">07/2025 | School of Mathematics and Statistics, Northeast Petroleum University</div>
+                <p class="item-desc">Funded by the Tianyuan Fund for Mathematics of the National Natural Science Foundation; Completed core courses on Morse Theory, Nehari Manifold Method and Minimax Principle</p>
+            </li>
+            <li>
+                <div class="item-title">Doctoral Forum of the Department of Mathematical Sciences, Tsinghua University</div>
+                <div class="item-sub">04/2024 | Tsinghua University, Beijing, China</div>
+                <p class="item-desc">Selected paper and delivered oral report on "On A Parabolic Equation in Microelectromechanical Systems with An External Pressure"</p>
+            </li>
+            <li>
+                <div class="item-title">The First International Congress of Basic Science (ICBS) Academic Poster Exhibition</div>
+                <div class="item-sub">07/2023 | Beijing, China</div>
+                <p class="item-desc">Selected poster "On A Parabolic Equation in MEMS with An External Pressure" and invited to the achievement presentation</p>
+            </li>
+            <li>
+                <div class="item-title">UCLA Artificial Intelligence Scholarship Program</div>
+                <div class="item-sub">01/2022 - 02/2022 | Funded by Jiangsu Provincial Government</div>
+                <p class="item-desc">Learned supervised/unsupervised/semi-supervised learning, mastered logistic regression, maximum likelihood and gradient descent algorithms</p>
+            </li>
+            <li>
+                <div class="item-title">Summer School on Differential Geometry, Beijing International Center for Mathematical Research (BICMR)</div>
+                <div class="item-sub">08/2021 | Peking University, Beijing, China</div>
+                <p class="item-desc">Studied Schauder estimation of second-order linear elliptic PDEs, Dirichlet problem solving via continuity method, and regularity theory of Poisson equation</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 5. INTERNSHIPS 实习经历（1:1还原你的简历） -->
+    <div class="section">
+        <h2><i class="fa-solid fa-briefcase"></i> INTERNSHIPS</h2>
+        <ul>
+            <li>
+                <div class="item-title">Aixuexi Education Group / Aijianzi Business Division | Mathematics Teaching and Research Specialist</div>
+                <div class="item-sub">10/2025 - 06/2026 | Beijing, China</div>
+            </li>
+            <li>
+                <div class="item-title">Beijing 101 Middle School | Mathematics Teaching and Research Specialist</div>
+                <div class="item-sub">11/2024 - 01/2025 | Beijing, China</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 6. TEACHING EXPERIENCE 教学经历（分TA和独立教学） -->
+    <div class="section">
+        <h2><i class="fa-solid fa-chalkboard-teacher"></i> TEACHING EXPERIENCE</h2>
+        <h3 style="margin: 10px 0 8px 10px; color: #2b4a78; font-size: 18px;">Teaching Assistant Experience</h3>
+        <ul style="margin-bottom: 20px;">
+            <li>
+                <div class="item-title">Introduction to Ordinary Differential Equations</div>
+                <div class="item-sub">09/2025 - 01/2026 | Tsinghua University | Instructor: Prof. Mcrae Robert Harold</div>
+            </li>
+            <li>
+                <div class="item-title">Real Analysis</div>
+                <div class="item-sub">03/2025 - 07/2025 | Tsinghua University | Instructor: Prof. Weifeng Sun</div>
+            </li>
+            <li>
+                <div class="item-title">Special Topics in Analysis and Partial Differential Equations</div>
+                <div class="item-sub">09/2024 - 01/2025 | Tsinghua University | Instructor: Prof. Zhijie Chen</div>
+            </li>
+        </ul>
+        <h3 style="margin: 10px 0 8px 10px; color: #2b4a78; font-size: 18px;">Independent Teaching Experience</h3>
+        <ul>
+            <li>
+                <div class="item-title">Series of Undergraduate & Graduate Mathematics Courses | Bilibili</div>
+                <div class="item-sub">02/2023 - Present</div>
+                <p class="item-desc">Course content: Functional Analysis, Real Analysis, Complex Analysis, Ordinary Differential Equations, Abstract Algebra, Topology, Numerical Analysis, Differential Geometry, Regularity Theory for Elliptic PDE, etc.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 7. HONORS AND AWARDS 荣誉奖项（按学术优先级排序） -->
+    <div class="section">
+        <h2><i class="fa-solid fa-award"></i> HONORS AND AWARDS</h2>
+        <ul>
+            <li>
+                <div class="item-title">CUHK Vice-Chancellor’s PhD Scholarship Scheme</div>
+                <div class="item-sub">The Chinese University of Hong Kong | 2026</div>
+            </li>
+            <li>
+                <div class="item-title">Comprehensive Outstanding Scholarship (First Prize)</div>
+                <div class="item-sub">Tsinghua University | 2025</div>
+            </li>
+            <li>
+                <div class="item-title">Qiuzhen Creative Paper Awards (First Prize)</div>
+                <div class="item-sub">Qiuzhen College, Tsinghua University | 2024</div>
+            </li>
+            <li>
+                <div class="item-title">Excellent Undergraduate Graduation Project (Thesis)</div>
+                <div class="item-sub">Southeast University | 2023</div>
+            </li>
+            <li>
+                <div class="item-title">Second Prize in the Final, First Prize in the Preliminary, The Chinese Mathematics Competition (CMC)</div>
+                <div class="item-sub">Chinese Mathematical Society (CMS) | 2021 & 2023</div>
+            </li>
+            <li>
+                <div class="item-title">First Prize, Jiangsu Provincial Higher Mathematics Competition</div>
+                <div class="item-sub">Mathematics Teaching Research Association of Jiangsu Province | 2020, 2021 & 2022 (Three Consecutive Years)</div>
+            </li>
+            <li>
+                <div class="item-title">Second Prize, Jiangsu Province Mathematical Modeling Contest</div>
+                <div class="item-sub">China Undergraduate Mathematical Contest in Modeling | 2021</div>
+            </li>
+            <li>
+                <div class="item-title">Merit Student, Outstanding Communist Youth League Member</div>
+                <div class="item-sub">Southeast University | 2021 & 2022</div>
+            </li>
+            <li>
+                <div class="item-title">Outstanding Camper of the 5th Summer Camp, School of Mathematics and Statistics</div>
+                <div class="item-sub">Lanzhou University | 2022</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 8. SKILLS 技能（1:1还原你的简历） -->
+    <div class="section">
+        <h2><i class="fa-solid fa-code"></i> SKILLS</h2>
+        <ul>
+            <li><strong>Programming & Tools:</strong> LaTeX, Python, MATLAB, R, C++</li>
+            <li><strong>Languages:</strong> Mandarin Chinese (Native), English (CET-4: 613, CET-6: 590, TOEFL: 82), Cantonese (In Preparation), Japanese (Second Foreign Language)</li>
+            <li><strong>Interests:</strong> Music, Singing, Running, Swimming, Reading, Football</li>
+        </ul>
+    </div>
+
+    <!-- 9. 新增：TRAVEL LOG 旅行记录（你可以自行补充修改） -->
+    <div class="section">
+        <h2><i class="fa-solid fa-plane-departure"></i> TRAVEL LOG</h2>
+        <div class="two-column">
+            <div>
+                <h3 style="color: #2b4a78; margin-bottom: 10px; font-size: 17px;">Academic Travel</h3>
+                <ul>
+                    <li>
+                        <div class="item-title">Tokyo, Japan</div>
+                        <div class="item-sub">01/2024 | Tsinghua-Tokyo Workshop on Calabi-Yau</div>
+                    </li>
+                    <li>
+                        <div class="item-title">Sanya, China</div>
+                        <div class="item-sub">12/2023 | Tsinghua Sanya International Mathematics Forum</div>
+                    </li>
+                    <li>
+                        <div class="item-title">Shenzhen, China</div>
+                        <div class="item-sub">10/2024 | 7th National Forum on Partial Differential Equations for Doctoral Students</div>
+                    </li>
+                    <li>
+                        <div class="item-title">Hong Kong, China</div>
+                        <div class="item-sub">10/2024 | The University of Hong Kong, School of Computing and Data Science Inauguration Ceremony</div>
+                    </li>
+                    <!-- 在这里继续添加你的学术旅行 -->
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: #2b4a78; margin-bottom: 10px; font-size: 17px;">Personal Travel</h3>
+                <ul>
+                    <li>
+                        <div class="item-title">Shanghai, China</div>
+                        <div class="item-sub">04/2025 | Red-themed Social Practice</div>
+                    </li>
+                    <li>
+                        <div class="item-title">Nanjing, China</div>
+                        <div class="item-sub">2019-2023 | Undergraduate Study & Local Trips</div>
+                    </li>
+                    <!-- 在这里补充你的个人旅行记录，格式参考上面，比如：
+                    <li>
+                        <div class="item-title">城市/国家名</div>
+                        <div class="item-sub">出行时间 | 备注（比如和朋友旅行、打卡景点等）</div>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. 新增：MUSIC & ALBUMS 专辑收听记录（你可以自行补充修改） -->
+    <div class="section">
+        <h2><i class="fa-solid fa-music"></i> MUSIC & ALBUMS</h2>
+        <ul>
+            <li>
+                <div class="item-title">专辑名称 - 歌手/乐队名</div>
+                <div class="item-sub">收听时间 | 备注（比如最喜欢的单曲、收听感受等）</div>
+            </li>
+            <li>
+                <div class="item-title">专辑名称 - 歌手/乐队名</div>
+                <div class="item-sub">收听时间 | 备注（比如最喜欢的单曲、收听感受等）</div>
+            </li>
+            <li>
+                <div class="item-title">专辑名称 - 歌手/乐队名</div>
+                <div class="item-sub">收听时间 | 备注（比如最喜欢的单曲、收听感受等）</div>
+            </li>
+            <!-- 在这里继续添加你的专辑记录，格式和上面完全一致，直接复制行修改即可 -->
+        </ul>
+    </div>
+
+    <!-- 11. REFERENCES 推荐人（1:1还原你的简历） -->
+    <div class="section">
+        <h2><i class="fa-solid fa-user-tie"></i> REFERENCES</h2>
+        <div class="two-column">
             <ul>
-                <li>负责XX工作/任务</li>
-                <li>完成XX成果/收获</li>
+                <li>
+                    <div class="item-title">Prof. Zhijie Chen</div>
+                    <div class="item-desc">Professor, Qiuzhen College, Tsinghua University</div>
+                    <div class="item-desc">Master’s Advisor | Email: zjchen2016@tsinghua.edu.cn</div>
+                </li>
+                <li>
+                    <div class="item-title">Prof. Renjun Duan</div>
+                    <div class="item-desc">Professor, Department of Mathematics, The Chinese University of Hong Kong</div>
+                    <div class="item-desc">PhD Advisor | Email: rjduan@math.cuhk.edu.hk</div>
+                </li>
+                <li>
+                    <div class="item-title">Prof. Xiaoliu Wang</div>
+                    <div class="item-desc">Professor, School of Mathematics, Southeast University</div>
+                    <div class="item-desc">Bachelor’s Advisor | Email: xlwang@seu.edu.cn</div>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div class="item-title">Prof. Yi Li</div>
+                    <div class="item-desc">Professor, School of Mathematics, Southeast University</div>
+                    <div class="item-desc">Undergraduate Class Advisor | Email: yilicms@seu.edu.cn</div>
+                </li>
+                <li>
+                    <div class="item-title">Prof. Wenming Zou</div>
+                    <div class="item-desc">Professor, Department of Mathematical Sciences, Tsinghua University</div>
+                    <div class="item-desc">Email: zou-wm@mail.tsinghua.edu.cn | Phone: +010-62796889</div>
+                </li>
             </ul>
         </div>
     </div>
+
 </body>
 </html>
