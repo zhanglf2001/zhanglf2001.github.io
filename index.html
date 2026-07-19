@@ -630,6 +630,10 @@
             <div class="item-sub">Multiple Visits</div>
         </li>
         <li>
+            <div class="item-title">Hefei, China</div>
+            <div class="item-sub">Mar 2024</div>
+        </li>
+        <li>
             <div class="item-title">Phuket, Thailand</div>
             <div class="item-sub">Dec 2024</div>
         </li>
@@ -656,7 +660,7 @@
     </ul>
 </div>
 
-<script src="assets/echarts.min.js"></script>
+<script src="echarts.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', async function () {
         const status = document.getElementById('map-status');
@@ -685,6 +689,8 @@
             { name: '湖北', displayName: 'Hubei', type: 'personal', details: ['Personal · Wuhan'] },
             { name: '湖南', displayName: 'Hunan', type: 'personal', details: ['Personal · Changsha'] },
             { name: '西藏', displayName: 'Tibet', type: 'personal', details: ['Personal · Lhasa & Nyingchi'] },
+            { name: '山东', displayName: 'Shandong', type: 'personal', details: ['Personal · Rizhao'] },
+            { name: '安徽', displayName: 'Anhui', type: 'personal', details: ['Personal · Hefei'] },
             { name: '河北', displayName: 'Hebei', type: 'personal', details: ['Personal · Baoding'] },
             { name: '天津', displayName: 'Tianjin', type: 'personal', details: ['Personal · Tianjin'] },
             { name: '山西', displayName: 'Shanxi', type: 'personal', details: ['Personal · Datong'] },
@@ -790,8 +796,8 @@
             }
 
             const responses = await Promise.all([
-                fetch('assets/china.json'),
-                fetch('assets/world.json')
+                fetch('china.json'),
+                fetch('world.json')
             ]);
 
             if (!responses[0].ok || !responses[1].ok) {
