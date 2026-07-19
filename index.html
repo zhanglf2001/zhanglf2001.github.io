@@ -651,7 +651,7 @@
     </ul>
 </div>
 
-<script src="assets/echarts.min.js"></script>
+<script src="echarts.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', async function () {
         const status = document.getElementById('map-status');
@@ -758,8 +758,8 @@
             }
 
             const responses = await Promise.all([
-                fetch('assets/china.json'),
-                fetch('assets/world.json')
+                fetch('china.json'),
+                fetch('world.json')
             ]);
 
             if (!responses[0].ok || !responses[1].ok) {
