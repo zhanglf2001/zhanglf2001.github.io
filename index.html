@@ -172,6 +172,10 @@
             background: #d97706;
         }
 
+        .travel-swatch.residence {
+            background: #c53030;
+        }
+
         .travel-swatch.both {
             background: #2f855a;
         }
@@ -338,7 +342,7 @@
         <ul>
             <li>
                 <div class="item-title">Formalization of the Two-Dimensional Kakeya Conjecture</div>
-                <div class="item-sub">07/2026 | Zhejiang University, Hangzhou, China</div>
+                <div class="item-sub">07/2026 | Zhejiang University, Hang Zhou, China</div>
                 <p class="item-desc"><i class="fa-brands fa-github"></i> <a href="https://github.com/2026SummerLean-kakeya/kakeya-formalization" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
             </li>
             <li>
@@ -540,6 +544,7 @@
     <div class="travel-legend" aria-label="Travel map legend">
         <span><i class="travel-swatch academic" aria-hidden="true"></i> Academic travel</span>
         <span><i class="travel-swatch personal" aria-hidden="true"></i> Personal travel</span>
+        <span><i class="travel-swatch residence" aria-hidden="true"></i> Residence</span>
         <span><i class="travel-swatch both" aria-hidden="true"></i> Both</span>
     </div>
 
@@ -547,18 +552,18 @@
         <div class="travel-map-block">
             <div class="travel-map-header">
                 <h3>China Provinces &amp; Regions</h3>
-                <span class="travel-map-count">18 highlighted</span>
+                <span class="travel-map-count">20 highlighted</span>
             </div>
-            <div id="china-travel-map" class="travel-map" role="img" aria-label="Map of visited provinces and regions in China, colored by academic and personal travel"></div>
-            <p class="visually-hidden">Academic travel: Zhejiang, Fujian, Shanghai, Hainan, Guangdong, Heilongjiang, Liaoning, Hong Kong and Macau. Personal travel: Shaanxi, Hubei, Hunan, Tibet, Hebei, Tianjin, Shanxi, Henan, Fujian and Jilin.</p>
+            <div id="china-travel-map" class="travel-map" role="img" aria-label="Map of visited provinces and regions in China, including the South China Sea Islands inset, colored by academic and personal travel"></div>
+            <p class="visually-hidden">The map includes the South China Sea Islands inset. Residence: Jiangsu, Beijing and Hong Kong. Academic travel: Zhejiang, Fujian, Shanghai, Hainan, Guangdong, Heilongjiang, Liaoning and Macau. Personal travel: Shaanxi, Hubei, Hunan, Tibet, Hebei, Tianjin, Shanxi, Henan, Fujian and Jilin.</p>
         </div>
         <div class="travel-map-block">
             <div class="travel-map-header">
                 <h3>Countries Abroad</h3>
-                <span class="travel-map-count">3 highlighted</span>
+                <span class="travel-map-count">4 highlighted</span>
             </div>
             <div id="world-travel-map" class="travel-map" role="img" aria-label="World map of visited countries abroad, colored by academic and personal travel"></div>
-            <p class="visually-hidden">Academic travel: Japan. Personal travel: Thailand and Malaysia.</p>
+            <p class="visually-hidden">Residence: China. Academic travel: Japan. Personal travel: Thailand and Malaysia.</p>
         </div>
     </div>
     <p id="map-status" class="map-status" role="status"></p>
@@ -651,19 +656,22 @@
     </ul>
 </div>
 
-<script src="echarts.min.js"></script>
+<script src="assets/echarts.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', async function () {
         const status = document.getElementById('map-status');
         const colors = {
             academic: '#2b6cb0',
             personal: '#d97706',
+            residence: '#c53030',
             both: '#2f855a',
             empty: '#edf1f5',
             border: '#ffffff'
         };
 
         const domesticTrips = [
+            { name: '江苏', displayName: 'Jiangsu', type: 'residence', residence: true, details: ['Residence · Jiangsu'] },
+            { name: '北京', displayName: 'Beijing', type: 'residence', residence: true, details: ['Residence · Beijing'] },
             { name: '浙江', displayName: 'Zhejiang', type: 'academic', details: ['Academic · Hangzhou'] },
             { name: '福建', displayName: 'Fujian', type: 'both', details: ['Academic · Xiamen', 'Personal · Fuzhou'] },
             { name: '上海', displayName: 'Shanghai', type: 'academic', details: ['Academic · Shanghai'] },
@@ -671,7 +679,7 @@
             { name: '广东', displayName: 'Guangdong', type: 'academic', details: ['Academic · Shenzhen'] },
             { name: '黑龙江', displayName: 'Heilongjiang', type: 'academic', details: ['Academic · Daqing, Qiqihar & Harbin'] },
             { name: '辽宁', displayName: 'Liaoning', type: 'academic', details: ['Academic · Shenyang'] },
-            { name: '香港', displayName: 'Hong Kong', type: 'academic', details: ['Academic · Hong Kong'] },
+            { name: '香港', displayName: 'Hong Kong', type: 'residence', residence: true, details: ['Residence · Hong Kong'] },
             { name: '澳门', displayName: 'Macau', type: 'academic', details: ['Academic · Macau'] },
             { name: '陕西', displayName: 'Shaanxi', type: 'personal', details: ["Personal · Xi'an"] },
             { name: '湖北', displayName: 'Hubei', type: 'personal', details: ['Personal · Wuhan'] },
@@ -685,6 +693,7 @@
         ];
 
         const internationalTrips = [
+            { name: 'China', displayName: 'China', type: 'residence', residence: true, details: ['Residence · China'] },
             { name: 'Japan', displayName: 'Japan', type: 'academic', details: ['Academic · Tokyo'] },
             { name: 'Thailand', displayName: 'Thailand', type: 'personal', details: ['Personal · Phuket'] },
             { name: 'Malaysia', displayName: 'Malaysia', type: 'personal', details: ['Personal · Langkawi & Kuala Lumpur'] }
@@ -694,7 +703,7 @@
             return entries.map(function (entry) {
                 return {
                     ...entry,
-                    value: entry.type === 'academic' ? 1 : entry.type === 'personal' ? 2 : 3,
+                    value: entry.residence ? 4 : entry.type === 'academic' ? 1 : entry.type === 'personal' ? 2 : 3,
                     itemStyle: {
                         areaColor: colors[entry.type]
                     }
@@ -704,12 +713,13 @@
 
         function tooltipFormatter(params) {
             if (!params.data || !params.data.details) {
-                return '<strong>' + params.name + '</strong>';
+                return '<strong>' + (params.data && params.data.displayName ? params.data.displayName : params.name) + '</strong>';
             }
 
             const lines = params.data.details.map(function (detail) {
+                const isResidence = detail.indexOf('Residence') === 0;
                 const isAcademic = detail.indexOf('Academic') === 0;
-                const dotColor = isAcademic ? colors.academic : colors.personal;
+                const dotColor = isResidence ? colors.residence : isAcademic ? colors.academic : colors.personal;
                 return '<span style="color:' + dotColor + '">●</span> ' + detail;
             }).join('<br>');
 
@@ -717,6 +727,28 @@
         }
 
         function mapOption(mapName, entries, zoom, center) {
+            const data = travelData(entries);
+
+            if (mapName === 'china') {
+                data.push({
+                    name: '南海诸岛',
+                    displayName: 'South China Sea Islands',
+                    value: 0,
+                    itemStyle: {
+                        areaColor: '#d8e2ec',
+                        borderColor: '#718096',
+                        borderWidth: 0.9
+                    },
+                    label: {
+                        show: true,
+                        color: '#718096',
+                        fontSize: 8,
+                        lineHeight: 10,
+                        formatter: 'South China Sea\nIslands'
+                    }
+                });
+            }
+
             return {
                 animationDuration: 700,
                 tooltip: {
@@ -747,7 +779,7 @@
                             borderWidth: 1
                         }
                     },
-                    data: travelData(entries)
+                    data: data
                 }]
             };
         }
@@ -758,8 +790,8 @@
             }
 
             const responses = await Promise.all([
-                fetch('china.json'),
-                fetch('world.json')
+                fetch('assets/china.json'),
+                fetch('assets/world.json')
             ]);
 
             if (!responses[0].ok || !responses[1].ok) {
@@ -770,13 +802,13 @@
                 return response.json();
             }));
 
-            echarts.registerMap('china-travel', maps[0]);
+            echarts.registerMap('china', maps[0]);
             echarts.registerMap('world-travel', maps[1]);
 
             const chinaChart = echarts.init(document.getElementById('china-travel-map'));
             const worldChart = echarts.init(document.getElementById('world-travel-map'));
 
-            chinaChart.setOption(mapOption('china-travel', domesticTrips, 1.08));
+            chinaChart.setOption(mapOption('china', domesticTrips, 1.08));
             worldChart.setOption(mapOption('world-travel', internationalTrips, 1.15, [45, 20]));
 
             window.addEventListener('resize', function () {
