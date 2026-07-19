@@ -120,6 +120,110 @@
             gap: 20px;
         }
 
+        /* Travel maps */
+        .travel-map-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .travel-map-header h3 {
+            color: #1a202c;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .travel-map-count {
+            color: #718096;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .travel-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            margin: 0 0 18px 0;
+            color: #4a5568;
+            font-size: 13px;
+        }
+
+        .travel-legend span {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .travel-swatch {
+            width: 13px;
+            height: 13px;
+            border: 1px solid rgba(26, 32, 44, 0.18);
+            border-radius: 2px;
+            flex: 0 0 auto;
+        }
+
+        .travel-swatch.academic {
+            background: #2b6cb0;
+        }
+
+        .travel-swatch.personal {
+            background: #d97706;
+        }
+
+        .travel-swatch.both {
+            background: #2f855a;
+        }
+
+        .travel-map-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 0;
+            margin-bottom: 28px;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .travel-map-block {
+            min-width: 0;
+            padding: 20px 18px 12px 0;
+        }
+
+        .travel-map-block + .travel-map-block {
+            border-left: 1px solid #e2e8f0;
+            padding-right: 0;
+            padding-left: 18px;
+        }
+
+        .travel-map {
+            width: 100%;
+            height: 360px;
+        }
+
+        .map-status {
+            display: none;
+            padding: 12px 0;
+            color: #9c4221;
+            font-size: 14px;
+        }
+
+        .map-status.is-visible {
+            display: block;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* 响应式适配（手机端自动调整） */
         @media (max-width: 768px) {
             .header h1 {
@@ -138,6 +242,20 @@
                 flex-direction: column;
                 gap: 4px;
             }
+            .travel-map-grid {
+                grid-template-columns: 1fr;
+            }
+            .travel-map-block {
+                padding: 18px 0;
+            }
+            .travel-map-block + .travel-map-block {
+                border-top: 1px solid #e2e8f0;
+                border-left: 0;
+                padding: 18px 0;
+            }
+            .travel-map {
+                height: 330px;
+            }
         }
     </style>
 </head>
@@ -147,11 +265,12 @@
         <h1>Lingfeng Zhang（张凌枫）</h1>
         <p class="research-interest">Research Interests: Partial Differential Equations</p>
         <p class="contact">
-            <span><i class="fa-solid fa-location-dot"></i> Beijing, China</span>
+            <span><i class="fa-solid fa-location-dot"></i> Hong Kong, China</span>
             <span><i class="fa-solid fa-envelope"></i> <a href="mailto:18501405745@163.com">18501405745@163.com</a></span>
+            <span><i class="fa-solid fa-envelope"></i> <a href="mailto:zhanglingfeng2001@gmail.com">zhanglingfeng2001@gmail.com</a></span>
             <span><i class="fa-solid fa-phone"></i> +86-18501405745</span>
-            <span><i class="fa-brands fa-github"></i> <a href="https://github.com/zhanglf2001" target="_blank">GitHub</a><span>
-            <span><i class="fa-brands fa-bilibili"></i> <a href="https://space.bilibili.com/504880676" target="_blank">哔哩哔哩</a><span>
+            <span><i class="fa-brands fa-github"></i> <a href="https://github.com/zhanglf2001" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+            <span><i class="fa-brands fa-bilibili"></i> <a href="https://space.bilibili.com/504880676" target="_blank" rel="noopener noreferrer">哔哩哔哩</a></span>
         </p>
     </div>
 
@@ -218,6 +337,11 @@
         <h2>RESEARCH PROJECTS</h2>
         <ul>
             <li>
+                <div class="item-title">Formalization of the Two-Dimensional Kakeya Conjecture</div>
+                <div class="item-sub">07/2026 | Zhejiang University, Hang Zhou, China</div>
+                <p class="item-desc"><i class="fa-brands fa-github"></i> <a href="https://github.com/2026SummerLean-kakeya/kakeya-formalization" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+            </li>
+            <li>
                 <div class="item-title">Raw Material Production Data Prediction Based on Deep Learning</div>
                 <div class="item-sub">11/2021 - 11/2022 | Southeast University, Nanjing, China</div>
                 <p class="item-desc">Project Leader; Key Project of Southeast University</p>
@@ -245,7 +369,7 @@
             <li>
                 <div class="item-title">Summer School on AI for Mathematics, Institute for Advanced Study in Mathematics (IASM)</div>
                 <div class="item-sub">07/2026 | Zhejiang University, Hangzhou, China</div>
-                <p class="item-desc">TBD</p>
+                <p class="item-desc">Funded by the New Cornerstone Science Foundation; Studied formalization in Lean 4 and completed the formalization of the two-dimensional Kakeya conjecture</p>
             </li>
             <li>
                 <div class="item-title">Tianyuan Mathematics Workshop on Nonlinear Functional Analysis and Its Applications</div>
@@ -413,6 +537,32 @@
   <div class="section">
     <h2>TRAVEL LOG</h2>
 
+    <div class="travel-legend" aria-label="Travel map legend">
+        <span><i class="travel-swatch academic" aria-hidden="true"></i> Academic travel</span>
+        <span><i class="travel-swatch personal" aria-hidden="true"></i> Personal travel</span>
+        <span><i class="travel-swatch both" aria-hidden="true"></i> Both</span>
+    </div>
+
+    <div class="travel-map-grid">
+        <div class="travel-map-block">
+            <div class="travel-map-header">
+                <h3>China Provinces &amp; Regions</h3>
+                <span class="travel-map-count">18 highlighted</span>
+            </div>
+            <div id="china-travel-map" class="travel-map" role="img" aria-label="Map of visited provinces and regions in China, colored by academic and personal travel"></div>
+            <p class="visually-hidden">Academic travel: Zhejiang, Fujian, Shanghai, Hainan, Guangdong, Heilongjiang, Liaoning, Hong Kong and Macau. Personal travel: Shaanxi, Hubei, Hunan, Tibet, Hebei, Tianjin, Shanxi, Henan, Fujian and Jilin.</p>
+        </div>
+        <div class="travel-map-block">
+            <div class="travel-map-header">
+                <h3>Countries Abroad</h3>
+                <span class="travel-map-count">3 highlighted</span>
+            </div>
+            <div id="world-travel-map" class="travel-map" role="img" aria-label="World map of visited countries abroad, colored by academic and personal travel"></div>
+            <p class="visually-hidden">Academic travel: Japan. Personal travel: Thailand and Malaysia.</p>
+        </div>
+    </div>
+    <p id="map-status" class="map-status" role="status"></p>
+
     <!-- 学术旅行子板块 -->
     <h3 style="color: #2c5282; margin-top: 20px; margin-bottom: 10px; border-left: 3px solid #2c5282; padding-left: 10px;">Academic Travel</h3>
     <ul>
@@ -500,3 +650,145 @@
         </li>
     </ul>
 </div>
+
+<script src="assets/echarts.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        const status = document.getElementById('map-status');
+        const colors = {
+            academic: '#2b6cb0',
+            personal: '#d97706',
+            both: '#2f855a',
+            empty: '#edf1f5',
+            border: '#ffffff'
+        };
+
+        const domesticTrips = [
+            { name: '浙江', displayName: 'Zhejiang', type: 'academic', details: ['Academic · Hangzhou'] },
+            { name: '福建', displayName: 'Fujian', type: 'both', details: ['Academic · Xiamen', 'Personal · Fuzhou'] },
+            { name: '上海', displayName: 'Shanghai', type: 'academic', details: ['Academic · Shanghai'] },
+            { name: '海南', displayName: 'Hainan', type: 'academic', details: ['Academic · Sanya'] },
+            { name: '广东', displayName: 'Guangdong', type: 'academic', details: ['Academic · Shenzhen'] },
+            { name: '黑龙江', displayName: 'Heilongjiang', type: 'academic', details: ['Academic · Daqing, Qiqihar & Harbin'] },
+            { name: '辽宁', displayName: 'Liaoning', type: 'academic', details: ['Academic · Shenyang'] },
+            { name: '香港', displayName: 'Hong Kong', type: 'academic', details: ['Academic · Hong Kong'] },
+            { name: '澳门', displayName: 'Macau', type: 'academic', details: ['Academic · Macau'] },
+            { name: '陕西', displayName: 'Shaanxi', type: 'personal', details: ["Personal · Xi'an"] },
+            { name: '湖北', displayName: 'Hubei', type: 'personal', details: ['Personal · Wuhan'] },
+            { name: '湖南', displayName: 'Hunan', type: 'personal', details: ['Personal · Changsha'] },
+            { name: '西藏', displayName: 'Tibet', type: 'personal', details: ['Personal · Lhasa & Nyingchi'] },
+            { name: '河北', displayName: 'Hebei', type: 'personal', details: ['Personal · Baoding'] },
+            { name: '天津', displayName: 'Tianjin', type: 'personal', details: ['Personal · Tianjin'] },
+            { name: '山西', displayName: 'Shanxi', type: 'personal', details: ['Personal · Datong'] },
+            { name: '河南', displayName: 'Henan', type: 'personal', details: ['Personal · Zhengzhou'] },
+            { name: '吉林', displayName: 'Jilin', type: 'personal', details: ['Personal · Changbai Mountain & Yanbian'] }
+        ];
+
+        const internationalTrips = [
+            { name: 'Japan', displayName: 'Japan', type: 'academic', details: ['Academic · Tokyo'] },
+            { name: 'Thailand', displayName: 'Thailand', type: 'personal', details: ['Personal · Phuket'] },
+            { name: 'Malaysia', displayName: 'Malaysia', type: 'personal', details: ['Personal · Langkawi & Kuala Lumpur'] }
+        ];
+
+        function travelData(entries) {
+            return entries.map(function (entry) {
+                return {
+                    ...entry,
+                    value: entry.type === 'academic' ? 1 : entry.type === 'personal' ? 2 : 3,
+                    itemStyle: {
+                        areaColor: colors[entry.type]
+                    }
+                };
+            });
+        }
+
+        function tooltipFormatter(params) {
+            if (!params.data || !params.data.details) {
+                return '<strong>' + params.name + '</strong>';
+            }
+
+            const lines = params.data.details.map(function (detail) {
+                const isAcademic = detail.indexOf('Academic') === 0;
+                const dotColor = isAcademic ? colors.academic : colors.personal;
+                return '<span style="color:' + dotColor + '">●</span> ' + detail;
+            }).join('<br>');
+
+            return '<strong>' + params.data.displayName + '</strong><br>' + lines;
+        }
+
+        function mapOption(mapName, entries, zoom, center) {
+            return {
+                animationDuration: 700,
+                tooltip: {
+                    trigger: 'item',
+                    borderColor: '#cbd5e0',
+                    backgroundColor: 'rgba(255, 255, 255, 0.96)',
+                    textStyle: { color: '#2d3748', fontSize: 13 },
+                    formatter: tooltipFormatter
+                },
+                series: [{
+                    type: 'map',
+                    map: mapName,
+                    roam: false,
+                    zoom: zoom,
+                    center: center,
+                    selectedMode: false,
+                    label: { show: false },
+                    itemStyle: {
+                        areaColor: colors.empty,
+                        borderColor: colors.border,
+                        borderWidth: 0.7
+                    },
+                    emphasis: {
+                        label: { show: false },
+                        itemStyle: {
+                            areaColor: '#8aa4bf',
+                            borderColor: '#ffffff',
+                            borderWidth: 1
+                        }
+                    },
+                    data: travelData(entries)
+                }]
+            };
+        }
+
+        try {
+            if (!window.echarts) {
+                throw new Error('The map library did not load.');
+            }
+
+            const responses = await Promise.all([
+                fetch('assets/china.json'),
+                fetch('assets/world.json')
+            ]);
+
+            if (!responses[0].ok || !responses[1].ok) {
+                throw new Error('The map data could not be loaded.');
+            }
+
+            const maps = await Promise.all(responses.map(function (response) {
+                return response.json();
+            }));
+
+            echarts.registerMap('china-travel', maps[0]);
+            echarts.registerMap('world-travel', maps[1]);
+
+            const chinaChart = echarts.init(document.getElementById('china-travel-map'));
+            const worldChart = echarts.init(document.getElementById('world-travel-map'));
+
+            chinaChart.setOption(mapOption('china-travel', domesticTrips, 1.08));
+            worldChart.setOption(mapOption('world-travel', internationalTrips, 1.15, [45, 20]));
+
+            window.addEventListener('resize', function () {
+                chinaChart.resize();
+                worldChart.resize();
+            });
+        } catch (error) {
+            status.textContent = 'Travel maps are temporarily unavailable. The full travel record remains listed below.';
+            status.classList.add('is-visible');
+            console.error(error);
+        }
+    });
+</script>
+</body>
+</html>
